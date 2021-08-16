@@ -1,0 +1,21 @@
+# dependencies
+/**/node_modules
+yarn-error.log
+npm-debug.log
+
+# IDE
+/.idea
+/.awcache
+/.vscode
+
+# misc
+.DS_Store
+lerna-debug.log
+/.npmrc
+
+# tests
+/coverage
+/.nyc_output
+
+# dist
+/tsconfig.tsbuildinfo
