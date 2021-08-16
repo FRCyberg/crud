@@ -773,7 +773,9 @@ export class TypeOrmCrudService<T> extends CrudService<T> {
     value: any,
     operator: ComparisonOperator = '$eq',
   ) {
-    const index = `crud_${Math.random().toString(16).substring(2)}`;
+    const index = `crud_${Math.random()
+      .toString(16)
+      .substring(2)}`;
     const args = [
       { field, operator: isNull(value) ? '$isnull' : operator, value },
       index,
@@ -870,7 +872,7 @@ export class TypeOrmCrudService<T> extends CrudService<T> {
 
   protected getFieldWithAlias(field: string, sort: boolean = false) {
     /* istanbul ignore next */
-    const i = this.dbName === 'mysql' ? '`' : '"';
+    const i = ['mysql', 'mariadb'].includes(this.dbName) ? '`' : '"';
     const cols = field.split('.');
 
     switch (cols.length) {
